@@ -1,35 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
+import {
+  ConnectionProvider,
+  WalletProvider,
+} from "@solana/wallet-adapter-react";
+import {
+  WalletDisconnectButton,
+  WalletModalProvider,
+  WalletMultiButton,
+} from "@solana/wallet-adapter-react-ui";
+import { UnsafeBurnerWalletAdapter } from "@solana/wallet-adapter-wallets";
+import { clusterApiUrl } from "@solana/web3.js";
+import React, { FC, useMemo } from "react";
+import Airdrop from "./Airdrop";
+
+// Default styles that can be overridden by your app
+import "@solana/wallet-adapter-react-ui/styles.css";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div id="main-div">
+      <ConnectionProvider
+        endpoint={
+          "https://solana-devnet.g.alchemy.com/v2/K-dyWLoE75nGD_Z3Cv2Bg0tvUY67mYUw"
+        }
+      >
+        <WalletProvider wallets={[]} autoConnect>
+          <h1 id="heading"> Solana-Faucet </h1>
+          <WalletModalProvider>
+            <p>Connect your wallet and request SOL airdrop</p>
+            <WalletMultiButton className="wallet-button"  />
+            <br></br>
+            <br></br>
+            <WalletDisconnectButton className="wallet-button" />
+            <Airdrop />
+          </WalletModalProvider>
+        </WalletProvider>
+      </ConnectionProvider>
+    </div>
+  );
 }
 
-export default App
+export default App;
