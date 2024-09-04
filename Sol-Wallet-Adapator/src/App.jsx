@@ -11,6 +11,7 @@ import {
 import { UnsafeBurnerWalletAdapter } from "@solana/wallet-adapter-wallets";
 import { clusterApiUrl } from "@solana/web3.js";
 import React, { FC, useMemo } from "react";
+import {ShowBalance}  from "./ShowBalance";
 import Airdrop from "./Airdrop";
 
 // Default styles that can be overridden by your app
@@ -34,6 +35,7 @@ function App() {
             <br></br>
             <WalletDisconnectButton className="wallet-button" />
             <Airdrop />
+            <ShowBalance />
           </WalletModalProvider>
         </WalletProvider>
       </ConnectionProvider>
