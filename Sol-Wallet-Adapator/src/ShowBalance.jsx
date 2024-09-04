@@ -29,7 +29,7 @@ export function ShowBalance(){
         <div>
             
             <div id="bal">
-            <p> SOL Balance: </p>
+            <p> SOL Balance ⚡️ : </p>
             {balance !== null ? `${balance} SOL` : "Connect wallet to see balance"}
                  </div>
         </div>
