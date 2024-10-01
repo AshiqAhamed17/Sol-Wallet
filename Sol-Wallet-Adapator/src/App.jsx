@@ -17,6 +17,7 @@ import Airdrop from "./Airdrop";
 // Default styles that can be overridden by your app
 import "@solana/wallet-adapter-react-ui/styles.css";
 import "./App.css";
+import { SendTokens } from "./SendTokens";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             <WalletDisconnectButton className="wallet-button" />
             <Airdrop />
             <ShowBalance />
+            <SendTokens />
           </WalletModalProvider>
         </WalletProvider>
       </ConnectionProvider>
