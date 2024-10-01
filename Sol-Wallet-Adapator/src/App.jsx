@@ -27,7 +27,7 @@ function App() {
         }
       >
         <WalletProvider wallets={[]} autoConnect>
-          <h1 id="heading"> Solana-Faucet </h1>
+          <h1 id="heading"> Solana Wallet-Adaptor </h1>
           <WalletModalProvider>
             <p>Connect your wallet and request SOL airdrop</p>
             <WalletMultiButton className="wallet-button"  />
