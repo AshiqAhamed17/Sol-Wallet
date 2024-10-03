@@ -2,6 +2,7 @@ import { ed25519 } from '@noble/curves/ed25519';
 import { useWallet } from '@solana/wallet-adapter-react';
 import bs58 from 'bs58';
 import React from 'react';
+import "./SignMessage.css";
 
 export function SignMessage() {
     const { publicKey, signMessage } = useWallet();
@@ -21,7 +22,7 @@ export function SignMessage() {
     return (
         <div>
             <input id="message" type="text" placeholder="Message" />
-            <button onClick={onClick}>
+            <button id="sign-btn" onClick={onClick}>
                 Sign Message
             </button>
         </div>
