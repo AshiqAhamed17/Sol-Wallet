@@ -1,0 +1,11 @@
+#to{
+    background-color: rgb(10, 12, 17);
+    color: red;
+    margin-right: 10px;
+
+}
+#btn{
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+}
